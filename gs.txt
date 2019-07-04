@@ -1,10 +1,10 @@
 function doGet(e){
 
  // Change Spread Sheet url
- var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1xoiwIeH5bOZqlsTzK-eHKIGZrbOt-IoYfLR3KUV8ZRs/edit#gid=0");
+ var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1Dd2Me3F-WOtrECydoaF6NUAUZ3tkLo6vCto9_OgGA5M/edit#gid=0");
 
 // Sheet Name, Chnage Sheet1 to Users in Spread Sheet. Or any other name as you wish
- var sheet = ss.getSheetByName("Users");
+ var sheet = ss.getSheetByName("2019");
   
  return getUsers(sheet); 
   
@@ -21,11 +21,21 @@ function getUsers(sheet){
   for(var i = 0, l= rows.length; i<l ; i++){
     var dataRow = rows[i];
     var record = {};
-    record['id'] = dataRow[0];
-    record['name'] = dataRow[1];
-    record['num'] = dataRow[2];
-    record['other'] = dataRow[3];
-// à¾ÔèÁ dataRow µÒÁµéÍ§¡ÒÃ
+    record['SITE'] = dataRow[0];
+    record['TEAM'] = dataRow[3];
+    record['WBS'] = dataRow[4];
+    record['BRAND OLT'] = dataRow[8];
+    record['PON'] = dataRow[9];
+    record['INSTALLATION DATE'] = dataRow[11];
+    record['STATUS'] = dataRow[12];
+    record['PHOTO ON WEB'] = dataRow[14];
+    record['REMARK PHOTO'] = dataRow[17];
+    record['STATUS PHOTO'] = dataRow[18];
+    record['STATUS DOC'] = dataRow[23];
+    record['REMARK'] = dataRow[24];
+    record['SSR ID'] = dataRow[25];
+    record['STATUS TPT'] = dataRow[26];
+// à¹€à¸žà¸´à¹ˆà¸¡ dataRow à¸•à¸²à¸¡à¸•à¹‰à¸­à¸‡à¸à¸²à¸£
     dataArray.push(record);
     
   }  
@@ -38,5 +48,5 @@ function getUsers(sheet){
   
 }  
   
-  //ÍÂèÒÅ×Á à¼Âá¾Ãè ãªé§Ò¹àÇçº áÅÐ¡´ÍÑ¾à´·
+  //à¸­à¸¢à¹ˆà¸²à¸¥à¸·à¸¡ à¹€à¸œà¸¢à¹à¸žà¸£à¹ˆ à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¹€à¸§à¹‡à¸š à¹à¸¥à¸°à¸à¸”à¸­à¸±à¸žà¹€à¸”à¸—
 
