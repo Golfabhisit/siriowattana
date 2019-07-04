@@ -1,0 +1,52 @@
+function doGet(e){
+
+ // Change Spread Sheet url
+ var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1Dd2Me3F-WOtrECydoaF6NUAUZ3tkLo6vCto9_OgGA5M/edit#gid=0");
+
+// Sheet Name, Chnage Sheet1 to Users in Spread Sheet. Or any other name as you wish
+ var sheet = ss.getSheetByName("2019");
+  
+ return getUsers(sheet); 
+  
+}
+
+
+function getUsers(sheet){
+  var jo = {};
+  var dataArray = [];
+
+// collecting data from 2nd Row , 1st column to last row and last column
+  var rows = sheet.getRange(2,1, sheet.getLastRow()-1, sheet.getLastColumn()).getValues(); 
+  
+  for(var i = 0, l= rows.length; i<l ; i++){
+    var dataRow = rows[i];
+    var record = {};
+    record['SITE'] = dataRow[0];
+    record['TEAM'] = dataRow[3];
+    record['WBS'] = dataRow[4];
+    record['BRAND OLT'] = dataRow[8];
+    record['PON'] = dataRow[9];
+    record['INSTALLATION DATE'] = dataRow[11];
+    record['STATUS'] = dataRow[12];
+    record['PHOTO ON WEB'] = dataRow[14];
+    record['REMARK PHOTO'] = dataRow[17];
+    record['STATUS PHOTO'] = dataRow[18];
+    record['STATUS DOC'] = dataRow[23];
+    record['REMARK'] = dataRow[24];
+    record['SSR ID'] = dataRow[25];
+    record['STATUS TPT'] = dataRow[26];
+// เพิ่ม dataRow ตามต้องการ
+    dataArray.push(record);
+    
+  }  
+  
+  jo.user = dataArray;
+  
+  var result = JSON.stringify(jo);
+  
+  return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
+  
+}  
+  
+  //อย่าลืม เผยแพร่ ใช้งานเว็บ และกดอัพเดท
+
