@@ -3,7 +3,7 @@
   "description": "Unirest PHP",
   "keywords": ["rest", "curl", "http", "https", "client"],
   "type": "library",
-  "homepage": "https://github.com/Mashape/unirest-php",
+  "homepage": "https://rocky-badlands-82436.herokuapp.com/",
   "license": "MIT",
   "author": "Mashape <opensource@mashape.com> (https://www.mashape.com)",
   "require": {
